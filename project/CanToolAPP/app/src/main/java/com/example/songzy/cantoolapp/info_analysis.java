@@ -34,8 +34,10 @@ public class info_analysis {
     }
     /*
     判断传入的字符串是否合法。
-    一、以   t   开头的时候
-        1.
+    一、以   t   开头的时候,即str_in[0] == "t"
+        1.str_in[1]是长度为3的十六进制的CAN标准ID值范围
+        2.str_in[2]属于【0,8】，
+        3.DD部分的长度为双数，每对为一个十六进制数，数对的个数为str_in[2]的数字
      */
     private static boolean judge(String str_in){
         boolean bool = false;
