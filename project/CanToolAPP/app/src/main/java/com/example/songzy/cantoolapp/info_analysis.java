@@ -2,6 +2,18 @@ package com.example.songzy.cantoolapp;
 
 /**
  * Created by Song on 2017/10/12.
+ * 传入数据的解码部分
+ *
+ * 传入一个String字符串数据
+ * 根据数据格式将数据分解为四部分
+ * 建立一个数据表格，将string的数据部分写入表格中
+ * 然后根据id查找数据库中需要进行的操作，从表格中获取数据
+ * 得到传入数据的信息
+ */
+
+/**
+ * str_in为传入字符串数据
+ * str_arr为分割之后的字符串数组
  */
 
 public class info_analysis {
@@ -9,6 +21,14 @@ public class info_analysis {
     String sample_str2 = "t3FF400111213\r";
     String sample_str3 = "T123FABCD80011121314151617\r";
     String sample_str4 = "T1234567F81122334455667788\r";
+
+
+
+
+
+
+
+
     //总的操作流程方法，调用各个方法执行操作，进行字符串解析
     public String operate(String x){
         String str_out = null;
@@ -30,11 +50,13 @@ public class info_analysis {
         else{
             str_arr[0] = "T";
             str_arr[1] = str_in.substring(1,9);
-            str_arr[2] = str_in.substring(4,5);
-            str_arr[3] = str_in.substring(5,str_in.length()-1);
+            str_arr[2] = str_in.substring(9,10);
+            str_arr[3] = str_in.substring(10,str_in.length()-1);
         }
         return str_arr;
     }
+
+
     /*
     判断传入的字符串是否合法。
     一、以   t   开头的时候,即str_in[0] == "t"
@@ -52,6 +74,25 @@ public class info_analysis {
         return bool;
     }
 
-    //建立表格，?
+
+    //建立表格，将data中的16进制数据转化为八位的二进制数据，然后写入表格中，
+    private int[][] write_in(String[] str_arr){
+        //建立表格，
+        int[][] table = new int[8][8];
+        int[] value = new int[8];
+        for(int i = 0;i<Integer.parseInt(str_arr[2]);i++){
+            //将每对DD转化为int型，并且转化为二进制，填入每一行中
+            String v = str_arr[3].substring(i*2)
+
+        }
+
+
+
+        return table;
+    }
+
+
+
+
 
 }
