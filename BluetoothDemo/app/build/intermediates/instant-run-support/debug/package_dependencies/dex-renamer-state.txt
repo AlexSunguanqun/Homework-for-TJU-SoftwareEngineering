@@ -1,0 +1,7 @@
+#Mon Oct 16 21:41:39 GMT+08:00 2017
+base.0=D\:\\andorid_test\\BluetoothDemo\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\support-v4-19.1.0_329fb9a56d9ef17587ce5a1e04b0a01d0c69d726
+renamed.1=classes.dex
+renamed.0=classes2.dex
+file.1=D\:\\andorid_test\\BluetoothDemo\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\classes_e1828625691f10a1c1b451304022c69d965553b6\\classes.dex
+base.1=D\:\\andorid_test\\BluetoothDemo\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\classes_e1828625691f10a1c1b451304022c69d965553b6
+file.0=D\:\\andorid_test\\BluetoothDemo\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\support-v4-19.1.0_329fb9a56d9ef17587ce5a1e04b0a01d0c69d726\\classes.dex
