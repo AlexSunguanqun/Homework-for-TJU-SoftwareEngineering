@@ -24,20 +24,16 @@ public class info_analysis {
 
 
 
-
-
-
-
-
     //总的操作流程方法，调用各个方法执行操作，进行字符串解析
     public String operate(String x){
         String str_out = null;
         return str_out;
     }
 
+
     //传入数据的解析，从蓝牙部分传进来字符串，根据编码规则，将字符串分解
     //并且返回一个字符串数组
-    private static String[] str_split(String str_in){
+    public static String[] str_split(String str_in){
         String[] str_arr = new String[4];
         //如果数据是以  t  开头的则以一下规则拆分
         if(str_in.startsWith("t")){
@@ -76,18 +72,34 @@ public class info_analysis {
 
 
     //建立表格，将data中的16进制数据转化为八位的二进制数据，然后写入表格中，
-    private int[][] write_in(String[] str_arr){
+    public static char[][] write_in(String[] str_arr){
         //建立表格，
-        int[][] table = new int[8][8];
+        char[][] table = new char[8][8];
         int[] value = new int[8];
         for(int i = 0;i<Integer.parseInt(str_arr[2]);i++){
             //将每对DD转化为int型，并且转化为二进制，填入每一行中
-            String v = str_arr[3].substring(i*2)
+            //先切成一对一对的，将每对转化为一个字符串给v,测试得正确
+            String v = str_arr[3].substring(i*2,i*2+2);
+
+            System.out.println();
+            //然后把v转化为十进制数字，测试得正确
+            int ten_value = Integer.parseInt(v,16);
+            System.out.println(ten_value);
+            //将十进制数字转化为二进制的字符串,测试得正确
+            String s = Integer.toBinaryString(ten_value);
+            //将二进制的字符串，左侧补0，总长度为8补全结果为result,测试得正确
+            String result = s;
+            for(int j=0;j<(8-s.length());j++){
+                result = "0"+result;
+            }
+            char[] char_arr = result.toCharArray();
+            //将转化好的八位二进制数字写入table表格中
+            for(int j = 0;j<8;j++){
+                table[i][j] = char_arr[j];
+//                System.out.print(table[i][j]);
+            }
 
         }
-
-
-
         return table;
     }
 
