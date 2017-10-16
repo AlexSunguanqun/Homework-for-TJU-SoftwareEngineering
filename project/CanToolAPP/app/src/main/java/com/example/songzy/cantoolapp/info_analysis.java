@@ -33,6 +33,7 @@ public class info_analysis {
 
     //传入数据的解析，从蓝牙部分传进来字符串，根据编码规则，将字符串分解
     //并且返回一个字符串数组
+    //测试正确，完成
     public static String[] str_split(String str_in){
         String[] str_arr = new String[4];
         //如果数据是以  t  开头的则以一下规则拆分
@@ -59,6 +60,7 @@ public class info_analysis {
         1.str_in[1]是长度为3的十六进制的CAN标准ID值范围
         2.str_in[2]属于【0,8】，
         3.DD部分的长度为双数，每对为一个十六进制数，数对的个数为str_in[2]的数字
+        TODO
      */
     private static boolean judge(String str_in){
         boolean bool = false;
@@ -71,7 +73,8 @@ public class info_analysis {
     }
 
 
-    //建立表格，将data中的16进制数据转化为八位的二进制数据，然后写入表格中，
+    //建立表格，将data中的16进制数据转化为八位的二进制数据，然后写入表格中，测试正确
+    //完成
     public static char[][] write_in(String[] str_arr){
         //建立表格，
         char[][] table = new char[8][8];
@@ -81,10 +84,10 @@ public class info_analysis {
             //先切成一对一对的，将每对转化为一个字符串给v,测试得正确
             String v = str_arr[3].substring(i*2,i*2+2);
 
-            System.out.println();
+//            System.out.println();
             //然后把v转化为十进制数字，测试得正确
             int ten_value = Integer.parseInt(v,16);
-            System.out.println(ten_value);
+//            System.out.println(ten_value);
             //将十进制数字转化为二进制的字符串,测试得正确
             String s = Integer.toBinaryString(ten_value);
             //将二进制的字符串，左侧补0，总长度为8补全结果为result,测试得正确
