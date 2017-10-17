@@ -16,18 +16,47 @@ package com.example.songzy.cantoolapp;
  * str_arr为分割之后的字符串数组
  */
 
-public class info_analysis {
+public class string_analysis {
+    //样例字符串，使用的时候没有意义，可以删除
     String sample_str1 = "t12380011121314151617\r";
     String sample_str2 = "t3FF400111213\r";
     String sample_str3 = "T123FABCD80011121314151617\r";
     String sample_str4 = "T1234567F81122334455667788\r";
 
 
+    //info_analysis的属性空间
+    String str_in;//传入的字符串信息
+    boolean legal ;//表示此字符串信息是否合法的boolean变量
+    String[] str_arr ;
+    private char[][] message_table ;
+
+
+    //构造方法
+    public string_analysis(String str){
+        this.str_in = str;
+        this.legal = judge(str);
+        this.str_arr = str_split(str);
+        this.message_table = write_in(this.str_arr);
+    }
+    public String getId(){
+        return str_arr[1];
+    }
+    public char[][] getMessage_table(){
+        return message_table;
+    }
+
+
+
 
     //总的操作流程方法，调用各个方法执行操作，进行字符串解析
-    public String operate(String x){
-        String str_out = null;
-        return str_out;
+    public void operate(String x){
+        //首先将传入的字符串分级为一个字符串组
+        String[] str_arr = str_split(x);
+        //然后将分解好的字符串组写入表格中
+        char[][] message_table = write_in(str_arr);
+        //根据id查找相应的操作方法（也就是数据库中的文字段）
+        //这里先不进行查找，先拟一个对应的数据库信息。
+        //解析文字段，提取表格中的信息（数值和单位？），传递给相对应的变量，并显示在界面上
     }
 
 
@@ -63,7 +92,7 @@ public class info_analysis {
         TODO
      */
     private static boolean judge(String str_in){
-        boolean bool = false;
+        boolean bool = true;
         //表示是否以t或者T开头的boolen值
         boolean Tort_started = str_in.startsWith("T")||str_in.startsWith("t");
         //当字符串以
@@ -72,7 +101,7 @@ public class info_analysis {
         return bool;
     }
 
-
+    //根据传入的字符串信息建立table
     //建立表格，将data中的16进制数据转化为八位的二进制数据，然后写入表格中，测试正确
     //完成
     public static char[][] write_in(String[] str_arr){
